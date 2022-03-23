@@ -1,6 +1,8 @@
 const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
+const btnApagaTudo = document.querySelector('#apaga-tudo');
+
 
 function addLista(event) {
   event.preventDefault();
@@ -55,3 +57,11 @@ function completed(li) {
     } 
   });
 }
+
+btnApagaTudo.addEventListener('click', function limpar(event) {
+  event.preventDefault();
+  const tarefas = document.querySelectorAll('.lista');
+  for (let index = 0; index < tarefas.length; index += 1) {
+    listaTarefas.removeChild(tarefas[index]);
+  }
+});
