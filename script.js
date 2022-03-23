@@ -7,11 +7,17 @@ btnCriarTarefa.addEventListener('click', addLista);
 function addLista(event) {
   event.preventDefault();
 
-  const criarLista = document.createElement('li');
-  listaTarefas.appendChild(criarLista);
-  criarLista.innerText = textoTarefa.value;
+  const tarefas = document.createElement('li');
+  tarefas.classList.add("lista");
+  listaTarefas.appendChild(tarefas);
+  tarefas.innerText = textoTarefa.value;
+
   if (textoTarefa.value.length !== 0) {
     textoTarefa.value = null;
     console.log(textoTarefa.value);
+
+    tarefas.addEventListener('click', function corCinza(event) {
+        event.target.style.backgroundColor = 'gray';
+    });
   }
 }
