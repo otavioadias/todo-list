@@ -2,6 +2,7 @@ const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
 const btnApagaTudo = document.querySelector('#apaga-tudo');
+const btnApagaCompletos = document.querySelector('#remover-finalizados'); 
 
 
 function addLista(event) {
@@ -63,5 +64,13 @@ btnApagaTudo.addEventListener('click', function limpar(event) {
   const tarefas = document.querySelectorAll('.lista');
   for (let index = 0; index < tarefas.length; index += 1) {
     listaTarefas.removeChild(tarefas[index]);
+  }
+});
+
+btnApagaCompletos.addEventListener('click', function completos(event) {
+  event.preventDefault();
+  const tarefaCompleta = document.querySelectorAll('.completed');
+  for (let index = 0; index < tarefaCompleta.length; index += 1) {
+    listaTarefas.removeChild(tarefaCompleta[index]);
   }
 });
