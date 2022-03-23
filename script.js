@@ -17,6 +17,7 @@ function addLista(event) {
     listaTarefas.removeChild(tarefa);
   }
   addEvento(tarefa);
+  completed(tarefa);
 }
 
 btnCriarTarefa.addEventListener('click', addLista);
@@ -32,10 +33,25 @@ function addEvento(li) {
   li.addEventListener('click', function (event) {
     if (event.target.classList[1] === 'selected') {
       event.target.classList.remove('selected');
-      console.log(event.target.classList[0]);
     } else {
       removeSelected();
       event.target.classList.add('selected');
     }
+  });
+}
+
+function removeCompleted() {
+  const tarefas = document.querySelectorAll('.lista');
+  tarefas.className.remove('completed');
+}
+
+function completed(li) {
+  li.addEventListener('dblclick', function (event) {
+    if (event.target.classList[1] === 'completed') {
+      event.target.classList.remove('completed');
+      console.log('clicou');
+    } else  {
+      event.target.classList.add('completed');      
+    } 
   });
 }
