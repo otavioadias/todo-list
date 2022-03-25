@@ -7,6 +7,7 @@ const btnApagaCompletos = document.querySelector('#remover-finalizados');
 const btnSalvar = document.querySelector('#salvar-tarefas');
 const btnCima = document.querySelector('#mover-cima');
 const btnBaixo = document.querySelector('#mover-baixo');
+const btnRemoverSelecionado = document.querySelector('#remover-selecionado');
 
 function addLista(event) {
   event.preventDefault();
@@ -143,3 +144,17 @@ function descer(event) {
       }
     }
   }
+
+  btnRemoverSelecionado.addEventListener('click', removerSelecionado);
+
+function removerSelecionado(event) {
+  event.preventDefault();
+  const tarefas = document.querySelectorAll('.lista');
+  const listaTarefas = document.querySelector('#lista-tarefas');
+
+  for (let index = 0; index < tarefas.length; index += 1) {
+    if (tarefas[index].classList[1] === 'selected') {
+      listaTarefas.removeChild(tarefas[index]);
+      }
+    }
+  };
