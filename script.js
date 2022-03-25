@@ -122,14 +122,14 @@ function subir(event) {
 
   for (let index = 0; index < tarefas.length; index += 1) {
     if (tarefas[index].classList[1] === 'selected') {
-      if ( [index] > 0) {
+      if ([index] > 0) {
         listaTarefas.insertBefore(tarefas[index], listaTarefas.children[index - 1]);
       }
-      }
     }
-  };
+  }
+};
 
-  btnBaixo.addEventListener('click', descer);
+btnBaixo.addEventListener('click', descer);
 
 function descer(event) {
   event.preventDefault();
@@ -138,14 +138,14 @@ function descer(event) {
 
   for (let index = 0; index < tarefas.length; index += 1) {
     if (tarefas[index].classList[1] === 'selected') {
-      if ( [index] < listaTarefas.children[index + 1]) {
+      if ([index] < listaTarefas.children[index + 1]) {
         listaTarefas.insertBefore(tarefas[index], listaTarefas.children[index + 2]);
-      }
       }
     }
   }
+}
 
-  btnRemoverSelecionado.addEventListener('click', removerSelecionado);
+btnRemoverSelecionado.addEventListener('click', removerSelecionado);
 
 function removerSelecionado(event) {
   event.preventDefault();
@@ -155,6 +155,6 @@ function removerSelecionado(event) {
   for (let index = 0; index < tarefas.length; index += 1) {
     if (tarefas[index].classList[1] === 'selected') {
       listaTarefas.removeChild(tarefas[index]);
-      }
     }
-  };
+  }
+};
