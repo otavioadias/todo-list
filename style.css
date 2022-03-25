@@ -1,5 +1,6 @@
 .selected {
     background-color: gray;
+    color: rgb(30, 255, 0);
 }
 .completed {
     text-decoration: line-through;

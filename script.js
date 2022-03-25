@@ -3,7 +3,7 @@ const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
 const btnApagaTudo = document.querySelector('#apaga-tudo');
-const btnApagaCompletos = document.querySelector('#remover-finalizados'); 
+const btnApagaCompletos = document.querySelector('#remover-finalizados');
 const btnSalvar = document.querySelector('#salvar-tarefas');
 const btnCima = document.querySelector('#mover-cima');
 const btnBaixo = document.querySelector('#mover-baixo');
@@ -56,9 +56,9 @@ function completed(li) {
   li.addEventListener('dblclick', function (event) {
     if (event.target.classList[1] === 'completed') {
       event.target.classList.remove('completed');
-    } else  {
-      event.target.classList.add('completed');      
-    } 
+    } else {
+      event.target.classList.add('completed');
+    }
   });
 }
 
@@ -91,14 +91,14 @@ btnSalvar.addEventListener('click', function salvar(event) {
   }
   console.log(arrayTarefas);
   localStorage.setItem('tarefas', JSON.stringify(arrayTarefas));
- 
+
 });
 
 function recarregar() {
   let localStorageTarefas = JSON.parse(localStorage.getItem('tarefas'));
   localStorageTarefas = localStorage.getItem('tarefas') !== null ? localStorageTarefas : [];
 
-  for (let index = 0; index < localStorageTarefas.length; index +=1) {
+  for (let index = 0; index < localStorageTarefas.length; index += 1) {
     const tarefa = document.createElement('li');
     addEvento(tarefa);
     completed(tarefa);
@@ -108,15 +108,38 @@ function recarregar() {
   }
 }
 
-window.onload = function() {
+window.onload = function () {
   recarregar();
 }
 
+btnCima.addEventListener('click', subir);
 
-/* btnCima.addEventListener('click', function moverCima(event) {
-    event.preventDefault();
+function subir(event) {
+  event.preventDefault();
   const tarefas = document.querySelectorAll('.lista');
-  console.log('subiu');
+  const listaTarefas = document.querySelector('#lista-tarefas');
+
   for (let index = 0; index < tarefas.length; index += 1) {
-  }    
-}) */
+    if (tarefas[index].classList[1] === 'selected') {
+      if ( [index] > 0) {
+        listaTarefas.insertBefore(tarefas[index], listaTarefas.children[index - 1]);
+      }
+      }
+    }
+  };
+
+  btnBaixo.addEventListener('click', descer);
+
+function descer(event) {
+  event.preventDefault();
+  const tarefas = document.querySelectorAll('.lista');
+  const listaTarefas = document.querySelector('#lista-tarefas');
+
+  for (let index = 0; index < tarefas.length; index += 1) {
+    if (tarefas[index].classList[1] === 'selected') {
+      if ( [index] < listaTarefas.children[index + 1]) {
+        listaTarefas.insertBefore(tarefas[index], listaTarefas.children[index + 2]);
+      }
+      }
+    }
+  }
