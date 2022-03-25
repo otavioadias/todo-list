@@ -37,12 +37,12 @@ function removeSelected() {
 
 function addEvento(li) {
   li.addEventListener('click', function (event) {
-    if (event.target.classList[1] === 'selected') {
+    /* if (event.target.classList[1] === 'selected') {
       event.target.classList.remove('selected');
-    } else {
+    } else { */
       removeSelected();
       event.target.classList.add('selected');
-    }
+    //}
   });
 }
 
@@ -114,7 +114,7 @@ function subir(event) {
   const listaTarefas = document.querySelector('#lista-tarefas');
 
   for (let index = 0; index < tarefas.length; index += 1) {
-    if (tarefas[index].classList[1] === 'selected' | tarefas[index].classList[2] === 'selected') {
+    if (tarefas[index].classList[1] === 'selected'  || tarefas[index].classList[2] === 'selected') {
       if ([index] > 0) {
         listaTarefas.insertBefore(tarefas[index], listaTarefas.children[index - 1]);
       }
@@ -130,7 +130,7 @@ function descer(event) {
   const listaTarefas = document.querySelector('#lista-tarefas');
 
   for (let index = 0; index < tarefas.length; index += 1) {
-    if (tarefas[index].classList[1] === 'selected' | tarefas[index].classList[2] === 'selected') {
+    if (tarefas[index].classList[1] === 'selected' || tarefas[index].classList[2] === 'selected') {
       if ([index] < listaTarefas.children[index + 1]) {
         listaTarefas.insertBefore(tarefas[index], listaTarefas.children[index + 2]);
       }
