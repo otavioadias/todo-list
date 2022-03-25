@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,16 @@
     <title>Project To Do List</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     </header>
-
-    <form>
+    <section>
         <input type="text" id="texto-tarefa" placeholder="Tarefa à ser realizada...">
+    </section>
+    <section>
         <button id="criar-tarefa">Adicionar</button>
         <button id="apaga-tudo">Limpar Lista</button>
         <button id="remover-finalizados">Limpar Completos</button>
@@ -22,7 +25,7 @@
         <button id="mover-cima">Subir</button>
         <button id="mover-baixo">Descer</button>
         <button id="remover-selecionado">Remover Selecionado</button>
-    </form>
+    </section>
 
     <section>
         <ol id="lista-tarefas"></ol>
@@ -30,4 +33,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

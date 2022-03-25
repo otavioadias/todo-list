@@ -1,7 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#lista-tarefas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100px;
+    margin: 40px;
+    padding: 20px;
+}
+
 .selected {
     background-color: gray;
     color: rgb(30, 255, 0);
 }
+
 .completed {
     text-decoration: line-through;
 }
