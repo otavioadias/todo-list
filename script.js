@@ -1,4 +1,3 @@
-
 const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
@@ -27,7 +26,6 @@ function addLista(event) {
   completed(tarefas);
 }
 
-
 btnCriarTarefa.addEventListener('click', addLista);
 
 function removeSelected() {
@@ -46,11 +44,6 @@ function addEvento(li) {
       event.target.classList.add('selected');
     }
   });
-}
-
-function removeCompleted() {
-  const tarefas = document.querySelectorAll('.lista');
-  tarefas.className.remove('completed');
 }
 
 function completed(li) {
@@ -111,7 +104,7 @@ function recarregar() {
 
 window.onload = function () {
   recarregar();
-}
+};
 
 btnCima.addEventListener('click', subir);
 
@@ -121,13 +114,13 @@ function subir(event) {
   const listaTarefas = document.querySelector('#lista-tarefas');
 
   for (let index = 0; index < tarefas.length; index += 1) {
-    if (tarefas[index].classList[1] === 'selected') {
+    if (tarefas[index].classList[1] === 'selected' | tarefas[index].classList[2] === 'selected') {
       if ([index] > 0) {
         listaTarefas.insertBefore(tarefas[index], listaTarefas.children[index - 1]);
       }
     }
   }
-};
+}
 
 btnBaixo.addEventListener('click', descer);
 
@@ -137,7 +130,7 @@ function descer(event) {
   const listaTarefas = document.querySelector('#lista-tarefas');
 
   for (let index = 0; index < tarefas.length; index += 1) {
-    if (tarefas[index].classList[1] === 'selected') {
+    if (tarefas[index].classList[1] === 'selected' | tarefas[index].classList[2] === 'selected') {
       if ([index] < listaTarefas.children[index + 1]) {
         listaTarefas.insertBefore(tarefas[index], listaTarefas.children[index + 2]);
       }
@@ -157,4 +150,4 @@ function removerSelecionado(event) {
       listaTarefas.removeChild(tarefas[index]);
     }
   }
-};
+}
