@@ -1,6 +1,9 @@
 # Projeto Lista de Tarefas!
 - Lista de tarefas usando `HTML`, `CSS` e `JavaScript`.
 
+![image](https://user-images.githubusercontent.com/98931133/193033908-86861bb9-75f7-4805-8b73-fc0d91ae0caf.png)
+
+
 # Requisitos obrigatórios:
   1 - Adicone à sua lista o título "Minha Lista de Tarefas" em uma tag <header>
   #
